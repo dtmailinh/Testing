@@ -5,7 +5,7 @@ public class BillPayment {
         Scanner sc = new Scanner(System.in);
         int Giobatdau = sc.nextInt();
         int Gioketthuc = sc.nextInt();
-        double Tongtien = Tinhgiatien(Giobatdau, Gioketthuc);
+        double Tongtien = Tinhtien(Giobatdau, Gioketthuc);
         if (Tongtien > 0) {
             System.out.println("So tien can thanh toan la: " + Tongtien);
         } else {
@@ -13,13 +13,12 @@ public class BillPayment {
         }
     }
 
-    public static double Tinhgiatien(int Giobatdau, int Gioketthuc) {
-        double tong = 0;
-        double giatien = 15000;
+    public static double Tinhtien(int Giobatdau, int Gioketthuc) {
+        double giatien = 15000, tong = 0;
         if ((Giobatdau > Gioketthuc) || Giobatdau < 12 || Gioketthuc > 23) {
             return -1.0;
         }
-        if (Giobatdau >= 12 && Gioketthuc <= 23) {
+        else {
             int thoigian = Gioketthuc - Giobatdau;
             tong = thoigian * giatien;
             if (thoigian > 3) {
@@ -31,6 +30,4 @@ public class BillPayment {
         }
         return tong;
     }
-
-
 }
